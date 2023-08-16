@@ -11,42 +11,42 @@ import {
 
 export const routes: Routes = [
   {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule),
+    path: "pages",
+    loadChildren: () =>
+      import("./pages/pages.module").then((m) => m.PagesModule),
   },
   {
-    path: 'auth',
+    path: "auth",
     component: NbAuthComponent,
     children: [
       {
-        path: '',
+        path: "",
         component: NbLoginComponent,
       },
       {
-        path: 'login',
+        path: "login",
         component: NbLoginComponent,
       },
       {
-        path: 'register',
+        path: "register",
         component: NbRegisterComponent,
       },
       {
-        path: 'logout',
+        path: "logout",
         component: NbLogoutComponent,
       },
       {
-        path: 'request-password',
+        path: "request-password",
         component: NbRequestPasswordComponent,
       },
       {
-        path: 'reset-password',
+        path: "reset-password",
         component: NbResetPasswordComponent,
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: "", redirectTo: "auth/login", pathMatch: "full" },
+  { path: "**", redirectTo: "auth/login" },
 ];
 
 const config: ExtraOptions = {

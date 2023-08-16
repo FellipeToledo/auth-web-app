@@ -10,20 +10,19 @@
     >
       <nb-icon [icon]="(materialTheme$ | async) ? 'menu-outline' : 'menu-2-outline'"></nb-icon>
     </a>
-    <a class="logo" href="#" (click)="navigateHome()">ngx-<span>admin</span></a>
-  </div>
-  <nb-select
-    status="primary"
-    matRipple
-    [selected]="currentTheme"
-    (selectedChange)="changeTheme($event)"
-  >
-    <nb-option
-      *ngFor="let theme of themes"
-      [value]="theme.value"
-      matRipple
-    >{{ theme.name }}</nb-option>
-  </nb-select>
+    <a class="logo" href="#" (click)="navigateHome()">
+      <nb-user size="large" name="JFA TECH" showInitials=false
+        picture="https://auth.vyse.in/icon.png">
+      </nb-user>
+
+    </a>
+    </div>
+    <div class="theme-container">
+      <nb-select status="primary" matRipple [selected]="currentTheme" (selectedChange)="changeTheme($event)" shape="round" size="large">
+        <nb-option *ngFor="let theme of themes" [value]="theme.value" matRipple>{{ theme.name }}</nb-option>
+      </nb-select>
+    </div>
+
 </div>
 
 <div class="header-container">
@@ -56,7 +55,8 @@
       matRipple
       [matRippleUnbounded]="true"
       [matRippleCentered]="true">
-      <nb-user [nbContextMenu]="userMenu"
+      <nb-user size="large"
+               [nbContextMenu]="userMenu"
                [onlyPicture]="userPictureOnly"
                [name]="user?.name"
                [picture]="user?.picture">
